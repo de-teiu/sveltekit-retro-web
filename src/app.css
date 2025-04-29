@@ -1,3 +1,15 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: sans-serif !important;
+    display: block !important;
+    place-items: initial !important;
+    min-height: 100vh !important;
+    min-width: 100% !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
