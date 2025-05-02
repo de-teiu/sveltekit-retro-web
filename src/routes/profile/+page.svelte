@@ -4,10 +4,8 @@
 	>
 		プロフィール
 	</h1>
-	<table class="relative mb-8 w-full border-spacing-0 border-none bg-white">
-		<thead
-			class="relative z-[2] bg-gradient-to-b from-[#cc99ff] to-[#9966cc] font-bold text-[rgb(0,55,156)]"
-		>
+	<table class="mb-8 w-full border-spacing-0 border-none bg-white">
+		<thead class="bg-gradient-to-b from-[#cc99ff] to-[#9966cc] font-bold text-[rgb(0,55,156)]">
 			<tr>
 				<th class="border-b-2 border-[#7744aa] p-3 text-center text-lg">項目</th>
 				<th class="border-b-2 border-[#7744aa] p-3 text-center text-lg">内容</th>
