@@ -10,7 +10,7 @@
 <style>
 	.menu-button {
 		display: inline-block;
-		min-width: 200px;
+		width: 200px;
 		padding: 8px 16px;
 		text-align: center;
 		color: white;

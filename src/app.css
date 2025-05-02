@@ -27,3 +27,9 @@ body {
 		conic-gradient(at 0% 100%, var(--c));
 	background-size: var(--s) var(--s);
 }
+
+@font-face {
+	font-family: 'DigitTech';
+	src: url('/DigitTech7-Regular.woff2');
+	font-display: swap;
+}
