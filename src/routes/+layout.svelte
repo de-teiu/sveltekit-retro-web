@@ -4,9 +4,32 @@
 	import MenuButton from '$lib/MenuButton.svelte';
 	import Midi from '$lib/Midi.svelte';
 	import MouseStalker from '$lib/MouseStalker.svelte';
+	import { page } from '$app/stores';
 
 	let { children } = $props();
+
+	// ページのパスに基づいてタイトルを動的に設定
+	const baseTitle = 'DE-TEIUのほめぱげ';
+
+	const pageTitle = $derived(
+		(() => {
+			switch ($page.route.id) {
+				case '/profile':
+					return `${baseTitle} - プロフィール`;
+				case '/underconstruction':
+					return `${baseTitle} - 工事中`;
+				case '/link':
+					return `${baseTitle} - リンク`;
+				default:
+					return baseTitle;
+			}
+		})()
+	);
 </script>
+
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
 
 {#snippet left()}
 	<div class="flex h-full flex-col">

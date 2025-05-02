@@ -2,7 +2,7 @@
 	<h1
 		class="mb-6 border-b-[6px] border-double border-[#ff9900] pb-2 text-center text-4xl font-bold text-[#ff6600]"
 	>
-		自己紹介
+		プロフィール
 	</h1>
 	<table class="relative mb-8 w-full border-spacing-0 border-none bg-white">
 		<thead

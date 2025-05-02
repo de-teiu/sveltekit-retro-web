@@ -2,7 +2,7 @@
 	<h1
 		class="mb-6 border-b-[6px] border-double border-[#ff9900] pb-2 text-center text-4xl font-bold text-[#ff6600]"
 	>
-		リンク集
+		リンク
 	</h1>
 	<div class="my-8 flex justify-center">
 		<table class="w-full max-w-[600px] border-collapse">
