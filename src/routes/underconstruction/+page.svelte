@@ -2,41 +2,15 @@
 	// CSSアニメーションを使用するため、JavaScriptでの制御は不要になりました
 </script>
 
-<div class="container">
-	<div class="construction-content">
-		<img src="/underconstruction.jpg" alt="工事中" class="image-left" />
-		<h1>工事中です！！！！</h1>
-		<img src="/underconstruction.jpg" alt="工事中" class="image-right" />
+<div class="flex h-full w-full items-center justify-center">
+	<div class="flex items-center gap-8">
+		<img src="/underconstruction.jpg" alt="工事中" class="image-left h-auto max-w-[300px]" />
+		<h1 class="m-0 text-center text-4xl text-[#ff3e00]">工事中です！！！！</h1>
+		<img src="/underconstruction.jpg" alt="工事中" class="image-right h-auto max-w-[300px]" />
 	</div>
 </div>
 
 <style>
-	.container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-		width: 100%;
-	}
-
-	.construction-content {
-		display: flex;
-		align-items: center;
-		gap: 2rem;
-	}
-
-	h1 {
-		font-size: 2.5rem;
-		color: #ff3e00;
-		text-align: center;
-		margin: 0;
-	}
-
-	img {
-		max-width: 300px;
-		height: auto;
-	}
-
 	/* 左側の画像のアニメーション */
 	.image-left {
 		animation: flip 1s infinite ease-in-out;

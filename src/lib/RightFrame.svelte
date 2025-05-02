@@ -1,21 +1,11 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
+	import type { Snippet } from 'svelte';
 
-  let {content } = $props<{
-    content: () => Snippet;
-  }>();
+	let { content } = $props<{
+		content: () => Snippet;
+	}>();
 </script>
 
-<div class="right-frame">
-  {@render content()}
+<div class="box-border h-full grow overflow-y-auto p-2.5">
+	{@render content()}
 </div>
-
-<style>
-  .right-frame {
-    flex-grow: 1;
-    height: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    overflow-y: auto;
-  }
-</style>

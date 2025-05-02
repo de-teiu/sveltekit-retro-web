@@ -3,25 +3,17 @@
 	export let text = 'トップ';
 </script>
 
-<a {href} class="menu-button">
+<a
+	{href}
+	class="menu-button inline-block w-[200px] cursor-pointer border border-[#000066] px-4 py-2 text-center font-bold tracking-wider text-white no-underline transition-all duration-200 ease-in-out"
+>
 	{text}
 </a>
 
 <style>
 	.menu-button {
-		display: inline-block;
-		width: 200px;
-		padding: 8px 16px;
-		text-align: center;
-		color: white;
-		font-weight: bold;
-		text-decoration: none;
 		background: linear-gradient(to bottom, #0066cc, #003399);
-		border: 1px solid #000066;
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-		cursor: pointer;
-		transition: all 0.2s ease;
-		letter-spacing: 1px;
 	}
 
 	.menu-button:hover {

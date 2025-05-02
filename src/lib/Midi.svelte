@@ -215,10 +215,13 @@
 	});
 </script>
 
-<div class="midi-player" class:hiddenPlayer>
+<div
+	class="mx-auto w-full max-w-[200px] rounded-none border border-[#aaa] bg-[#e8e8e8] shadow"
+	class:hidden={hiddenPlayer}
+>
 	{#if isLoaded}
-		<div class="player-container">
-			<div class="progress-bar">
+		<div class="p-[1px]">
+			<div class="w-[96%] py-[1px]">
 				<input
 					type="range"
 					min="0"
@@ -227,32 +230,41 @@
 					value={currentTime}
 					on:input={updateSeekPosition}
 					disabled={!isLoaded}
+					class="slider-input"
 				/>
 			</div>
 
-			<div class="controls-container">
-				<div class="playback-controls">
-					<button class="control-btn play-btn" on:click={togglePlay} disabled={!isLoaded}>
+			<div class="flex items-center justify-between p-[1px_4px]">
+				<div class="flex gap-[15px]">
+					<button
+						class="flex h-[16px] w-[12px] cursor-pointer items-center justify-center border-none bg-none p-[1px] text-xs text-[#111] outline-none disabled:cursor-not-allowed disabled:text-[#999]"
+						on:click={togglePlay}
+						disabled={!isLoaded}
+					>
 						{#if isPlaying}
-							<span class="pause-icon">&#10074;&#10074;</span>
+							<span class="inline-block text-[10px]">&#10074;&#10074;</span>
 						{:else}
-							<span class="play-icon">&#9654;</span>
+							<span class="inline-block text-[10px]">&#9654;</span>
 						{/if}
 					</button>
 
-					<button class="control-btn stop-btn" on:click={stop} disabled={!isLoaded}>
-						<span class="stop-icon">&#9632;</span>
+					<button
+						class="flex h-[16px] w-[12px] cursor-pointer items-center justify-center border-none bg-none p-[1px] text-xs text-[#111] outline-none disabled:cursor-not-allowed disabled:text-[#999]"
+						on:click={stop}
+						disabled={!isLoaded}
+					>
+						<span class="inline-block text-[10px]">&#9632;</span>
 					</button>
 				</div>
 
-				<div class="volume-control">
-					<span class="volume-icon">&#128266;</span>
+				<div class="flex items-center gap-[2px]">
+					<span class="text-[10px] text-[#111]">&#128266;</span>
 					<input
 						type="range"
 						min="0"
 						max="100"
 						value={volume}
-						class="volume-slider"
+						class="slider-input h-[2px] w-[50px]"
 						on:input={updateVolume}
 						disabled={!isLoaded}
 					/>
@@ -263,26 +275,7 @@
 </div>
 
 <style>
-	.midi-player {
-		width: 100%;
-		max-width: 200px;
-		margin: 0 auto;
-		border: 1px solid #aaa;
-		background-color: #e8e8e8;
-		border-radius: 0;
-		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-	}
-
-	.player-container {
-		padding: 1px;
-	}
-
-	.progress-bar {
-		width: 96%;
-		padding: 1px 0;
-	}
-
-	input[type='range'] {
+	.slider-input {
 		width: 100%;
 		height: 2px;
 		background: #c8c8c8;
@@ -290,7 +283,7 @@
 		border-radius: 0;
 	}
 
-	input[type='range']::-webkit-slider-thumb {
+	.slider-input::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
 		width: 5px;
@@ -298,72 +291,5 @@
 		background: #333;
 		cursor: pointer;
 		border-radius: 0;
-	}
-
-	.controls-container {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1px 4px;
-	}
-
-	.playback-controls {
-		display: flex;
-		gap: 15px;
-	}
-
-	.control-btn {
-		background: none;
-		border: none;
-		cursor: pointer;
-		font-size: 12px;
-		padding: 1px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: #111;
-		outline: none;
-		width: 12px;
-		height: 16px;
-	}
-
-	.control-btn:disabled {
-		color: #999;
-		cursor: not-allowed;
-	}
-
-	.play-icon {
-		display: inline-block;
-		font-size: 10px;
-	}
-
-	.pause-icon {
-		display: inline-block;
-		font-size: 10px;
-	}
-
-	.stop-icon {
-		display: inline-block;
-		font-size: 10px;
-	}
-
-	.volume-control {
-		display: flex;
-		align-items: center;
-		gap: 2px;
-	}
-
-	.volume-icon {
-		font-size: 10px;
-		color: #111;
-	}
-
-	.volume-slider {
-		width: 50px;
-		height: 2px;
-	}
-
-	.hiddenPlayer {
-		display: none !important;
 	}
 </style>

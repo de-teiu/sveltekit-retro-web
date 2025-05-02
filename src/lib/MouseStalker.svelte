@@ -83,16 +83,11 @@
 
 <div>
 	{#each items as item}
-		<div class="item" style="color:{item.color};top:{item.y}px;left:{item.x}px">
+		<div
+			class="pointer-events-none absolute text-sm"
+			style="color:{item.color};top:{item.y}px;left:{item.x}px"
+		>
 			{item.sign}
 		</div>
 	{/each}
 </div>
-
-<style>
-	.item {
-		position: absolute;
-		pointer-events: none;
-		font-size: 0.9rem;
-	}
-</style>
