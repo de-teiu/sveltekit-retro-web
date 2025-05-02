@@ -4,7 +4,7 @@
 	import MenuButton from '$lib/MenuButton.svelte';
 	import Midi from '$lib/Midi.svelte';
 	import MouseStalker from '$lib/MouseStalker.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	let { children } = $props();
 
@@ -13,7 +13,7 @@
 
 	const pageTitle = $derived(
 		(() => {
-			switch ($page.route.id) {
+			switch (page.route.id) {
 				case '/profile':
 					return `${baseTitle} - プロフィール`;
 				case '/underconstruction':
