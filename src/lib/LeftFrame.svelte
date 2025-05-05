@@ -9,7 +9,7 @@
 </script>
 
 <div class="flex h-full" style:min-width="{width}px">
-	<div class="h-full grow px-2.5 pt-2.5">
+	<div class="h-full grow pt-2.5">
 		{@render content()}
 	</div>
 	<button

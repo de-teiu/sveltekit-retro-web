@@ -5,11 +5,11 @@
 
 	const { left, right } = $props<{ left: Snippet; right: Snippet }>();
 
-	const LEFT_FRAME_MIN_WIDTH = 45;
+	const LEFT_FRAME_MIN_WIDTH = 240;
 	const FRAME_ADJUSTED_SETTING = 2;
 
 	let isDragged = $state(false);
-	let leftWidth = $state(200); // 初期幅
+	let leftWidth = $state(LEFT_FRAME_MIN_WIDTH); // 初期幅
 
 	function startResize() {
 		isDragged = true;
@@ -24,6 +24,9 @@
 		if (!isDragged) return;
 
 		leftWidth = Math.max(LEFT_FRAME_MIN_WIDTH, event.clientX + FRAME_ADJUSTED_SETTING);
+		if (leftWidth > window.innerWidth - LEFT_FRAME_MIN_WIDTH) {
+			leftWidth = window.innerWidth - LEFT_FRAME_MIN_WIDTH;
+		}
 	}
 </script>
 

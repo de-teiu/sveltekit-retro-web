@@ -1,42 +1,55 @@
 <script lang="ts">
-	import { onMount } from 'svelte'; // 画面初期化時イベント
-	export let text: string; // 表示する文字列（親コンポーネントから渡される）
+	import { onMount } from 'svelte';
+
+	// 表示する文字列（親コンポーネントから渡される）
+	export let text: string;
+
+	let headComponent: HTMLDivElement;
+	let textComponent: HTMLDivElement;
 	let containerWidth: number | undefined;
 	let textWidth: number | undefined;
-	let duration = 10; // デフォルトのアニメーション時間（秒）
+	let duration = 0;
 
-	// コンテナの幅を取得するための関数
+	/**
+	 * DOM要素の幅を取得するための関数
+	 * @param node DOM要素
+	 */
 	function getContainerWidth(node: HTMLElement): void {
 		containerWidth = node.offsetWidth;
 		calculateDuration();
 	}
 
-	// テキストの幅を取得するための関数
+	/**
+	 * DOM要素の幅を取得するための関数
+	 * @param node DOM要素
+	 */
 	function getTextWidth(node: HTMLElement): void {
 		textWidth = node.offsetWidth;
 		calculateDuration();
 	}
 
-	// アニメーション時間を計算する関数
+	/**
+	 * アニメーションの時間を計算する関数
+	 * 画面幅とテキスト幅から適切なアニメーション時間を計算
+	 */
 	function calculateDuration(): void {
 		if (containerWidth && textWidth) {
 			// 画面幅とテキスト幅から適切なアニメーション時間を計算
 			duration = (textWidth + containerWidth) / 100;
+			console.log('duration', duration);
 		}
 	}
 
-	// リサイズイベントのハンドラ
+	/**
+	 * リサイズイベントハンドラ
+	 * 画面サイズが変更されたときに呼び出される
+	 */
 	function handleResize(): void {
 		// 次のフレームでDOM要素のサイズを再計算
 		requestAnimationFrame(() => {
-			const container = document.querySelector('.marquee') as HTMLElement;
-			const textElement = document.querySelector('.marquee_text') as HTMLElement;
-
-			if (container && textElement) {
-				containerWidth = container.offsetWidth;
-				textWidth = textElement.offsetWidth;
-				calculateDuration();
-			}
+			containerWidth = headComponent.offsetWidth;
+			textWidth = textComponent.offsetWidth;
+			calculateDuration();
 		});
 	}
 
@@ -48,9 +61,14 @@
 
 <svelte:window on:resize={handleResize} />
 
-<div class="relative w-full overflow-hidden" use:getContainerWidth>
+<div
+	class="marquee relative w-full overflow-hidden"
+	bind:this={headComponent}
+	use:getContainerWidth
+>
 	<div
 		class="pl-full marquee_text inline-block whitespace-nowrap"
+		bind:this={textComponent}
 		use:getTextWidth
 		style="animation-duration: {duration}s;"
 	>
