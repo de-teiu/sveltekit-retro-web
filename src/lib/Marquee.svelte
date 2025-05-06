@@ -11,24 +11,6 @@
 	let duration = 0;
 
 	/**
-	 * DOM要素の幅を取得するための関数
-	 * @param node DOM要素
-	 */
-	function getContainerWidth(node: HTMLElement): void {
-		containerWidth = node.offsetWidth;
-		calculateDuration();
-	}
-
-	/**
-	 * DOM要素の幅を取得するための関数
-	 * @param node DOM要素
-	 */
-	function getTextWidth(node: HTMLElement): void {
-		textWidth = node.offsetWidth;
-		calculateDuration();
-	}
-
-	/**
 	 * アニメーションの時間を計算する関数
 	 * 画面幅とテキスト幅から適切なアニメーション時間を計算
 	 */
@@ -36,7 +18,6 @@
 		if (containerWidth && textWidth) {
 			// 画面幅とテキスト幅から適切なアニメーション時間を計算
 			duration = (textWidth + containerWidth) / 100;
-			console.log('duration', duration);
 		}
 	}
 
@@ -45,7 +26,7 @@
 	 * 画面サイズが変更されたときに呼び出される
 	 */
 	function handleResize(): void {
-		// 次のフレームでDOM要素のサイズを再計算
+		// 次のフレームでDOM要素のサイズを再取得
 		requestAnimationFrame(() => {
 			containerWidth = headComponent.offsetWidth;
 			textWidth = textComponent.offsetWidth;
@@ -61,15 +42,10 @@
 
 <svelte:window on:resize={handleResize} />
 
-<div
-	class="marquee relative w-full overflow-hidden"
-	bind:this={headComponent}
-	use:getContainerWidth
->
+<div class="marquee relative w-full overflow-hidden" bind:this={headComponent}>
 	<div
 		class="pl-full marquee_text inline-block whitespace-nowrap"
 		bind:this={textComponent}
-		use:getTextWidth
 		style="animation-duration: {duration}s;"
 	>
 		{text}

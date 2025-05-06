@@ -5,9 +5,9 @@
  * @returns ゼロ埋めされた文字列
  */
 export const zeroPad = (value: number, digit: number): string => {
-  if (digit < 1) throw new Error('桁数は1以上を指定してください');
-  if (value < 0) throw new Error('負の数値は対応していません');
-  
-  const zeros = "0".repeat(digit);
-  return (zeros + String(value)).slice(-digit);
+	if (digit < 1) throw new Error('桁数は1以上を指定してください');
+	if (value < 0) throw new Error('負の数値は対応していません');
+
+	const zeros = '0'.repeat(digit);
+	return (zeros + String(value)).slice(-digit);
 };

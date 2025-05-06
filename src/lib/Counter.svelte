@@ -9,8 +9,8 @@
 	あなたは
 	<span
 		class="counter-display bg-black p-[3px] font-['DigitTech',monospace] text-[22px] text-[#00ff00]"
-		>{formattedCount}</span
-	>
+		>{formattedCount}
+	</span>
 	人目の来訪者です。
 </div>
 

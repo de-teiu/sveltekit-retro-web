@@ -33,13 +33,7 @@
 	 * マウスストーカーアイテムを生成する
 	 */
 	const createMouseStalkerItem = (x: number, y: number): MouseStalkerItem => {
-		return new MouseStalkerItem(
-			STAR_SYMBOL,
-			generateRandomColor(),
-			0, // 初期タイマー値
-			x,
-			y
-		);
+		return new MouseStalkerItem(STAR_SYMBOL, generateRandomColor(), 0, x, y);
 	};
 
 	/**
@@ -48,7 +42,7 @@
 	const handleMouseMove = (event: MouseEvent) => {
 		if (!isEnabled) return;
 		const item = createMouseStalkerItem(event.pageX, event.pageY);
-		items = [...items, item]; // 配列を不変に保つ
+		items = [...items, item];
 	};
 
 	/**
@@ -83,11 +77,11 @@
 
 <div>
 	{#each items as item}
-		<div
+		<span
 			class="pointer-events-none absolute text-sm"
 			style="color:{item.color};top:{item.y}px;left:{item.x}px"
 		>
 			{item.sign}
-		</div>
+		</span>
 	{/each}
 </div>

@@ -30,6 +30,6 @@ body {
 
 @font-face {
 	font-family: 'DigitTech';
-	src: url('/DigitTech7-Regular.woff2');
+	src: url('/DigitTech7-Regular.ttf');
 	font-display: swap;
 }
