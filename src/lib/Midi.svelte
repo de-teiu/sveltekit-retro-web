@@ -27,6 +27,7 @@
 
 	/**
 	 * MIDIファイルを読み込む関数
+	 * @param url MIDIファイルのURL
 	 */
 	async function loadMidiFile(url: string): Promise<void> {
 		try {
@@ -121,7 +122,7 @@
 
 	/**
 	 * 現在の再生位置を更新
-	 * @param {Event} event - イベントオブジェクト
+	 * @param {Event} event イベントオブジェクト
 	 */
 	function updateSeekPosition(event: Event): void {
 		if (!isLoaded) return;
@@ -165,12 +166,14 @@
 		// イベントリスナーの設定
 		picoAudio.addEventListener('noteOn', () => {});
 
+		// 再生位置の更新
 		picoAudio.addEventListener('noteOff', (event: PicoAudioEvent) => {
 			if (currentTime < event.startTime) {
 				currentTime = event.startTime;
 			}
 		});
 
+		// 再生終了時の処理
 		picoAudio.addEventListener('songEnd', () => {
 			stop();
 			if (loop) {
