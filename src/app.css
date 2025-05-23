@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+* {
+	@apply box-border;
+}
+
+html {
+	@apply h-full;
+}
+
+body {
+	@apply h-full bg-gray-100 text-gray-900;
+
+	font-family:
+		'ＭＳ Ｐゴシック', 'MS PGothic', 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3',
+		'Hiragino Kaku Gothic Pro', Osaka, sans-serif;
+
+	--s: 120px; /* control the size*/
+	--c1: #b8d7f5;
+	--c2: #a1c6ec;
+	--c: var(--c1) 12.5%, var(--c2) 0 25%, #0000 0;
+	background:
+		conic-gradient(at 80% 20%, var(--c)) calc(2 * var(--s) / -5) calc(2 * var(--s) / 5),
+		conic-gradient(from 180deg at 60% 40%, var(--c)) calc(var(--s) / 5) calc(var(--s) / -5),
+		conic-gradient(at 0% 100%, var(--c));
+	background-size: var(--s) var(--s);
+}
+
+@font-face {
+	font-family: 'DigitTech';
+	src: url('/DigitTech7-Regular.ttf');
+	font-display: swap;
+}
